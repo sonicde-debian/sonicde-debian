@@ -14,7 +14,7 @@ for dir in $TO_BUILD; do
 		cd "$dir" || { echo "Failed to enter directory: $dir"; exit 1; }
 
 		# don't sign packages, they will be signed in a repo.
-		if ! gbp buildpackage --git-builder="debuild -i -I -us -uc" --git-debian-branch="xlibre/latest"; then
+		if ! gbp buildpackage --git-builder="debuild -i -I -us -uc" --git-debian-branch="debian/latest"; then
 			echo -e "\e[31mFailed to build package\e[0m: $dir"
 			if [ "$FAILFAST" = "true" ]; then
 				exit 1
