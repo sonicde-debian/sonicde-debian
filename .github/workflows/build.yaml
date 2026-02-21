@@ -1,0 +1,49 @@
+name: Build SonicDE Debian
+
+on:
+  push:
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          # Debian
+          - osimage: debian:unstable
+            osarchname: amd64
+            osdistroname: debian
+            runsonos: ubuntu-24.04
+          - osimage: debian:unstable
+            osarchname: arm64
+            osdistroname: debian
+            runsonos: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runsonos }}
+    container:
+      image: ${{ matrix.osimage }}
+    name: Build for ${{ matrix.osdistroname }} on ${{ matrix.osarchname }}
+    
+    steps:
+      - name: Install basic dependencies
+        run: |
+          apt-get update
+          apt-get upgrade -y --no-install-recommends
+          apt-get install -y git git-buildpackage devscripts debhelper build-essential equivs pristine-tar --no-install-recommends
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          make actions
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.osdistroname }}-packages-${{ matrix.osarchname }}
+          path: build/
+          if-no-files-found: warn

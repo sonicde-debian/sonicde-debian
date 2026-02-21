@@ -1,0 +1,12 @@
+/build
+# source codes
+/sonic-win
+# binaries
+*.build
+*.buildinfo
+*.changes
+*.deb
+*.xz
+*.gz
+*.dsc
+*.udeb

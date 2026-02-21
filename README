@@ -1,0 +1,6 @@
+SonicDE Debian
+--------------
+
+Build tools for SonicDE Debian
+To build, run `make`
+You'll find everything in `./build`
