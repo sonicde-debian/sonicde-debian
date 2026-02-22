@@ -37,10 +37,8 @@ for dir in $TO_BUILD; do
 			apt-get install -f -y
 			dpkg -i sonic-win-dev_*.deb
 			apt-get install -f -y
+			ls /usr/lib/*/cmake/KWinX11DBusInterface/
 		fi
-
-		apt list sonic-win-dev
-		apt show sonic-win-dev
 	else
 		echo "Directory not found: $dir"
 	fi
