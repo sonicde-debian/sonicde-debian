@@ -31,10 +31,16 @@ for dir in $TO_BUILD; do
 
 		if [ "$dir" = "sonic-win" ]; then
 			echo -e "\e[0;32mInstalling sonic-win-dev\e[0m"
-			dpkg -i sonic-win-data_*.deb || apt-get install -f -y
-			dpkg -i libsonicwin6_*.deb || apt-get install -f -y
-			dpkg -i sonic-win-dev_*.deb || apt-get install -f -y
+			dpkg -i sonic-win-data_*.deb
+			apt-get install -f -y
+			dpkg -i libsonicwin6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-win-dev_*.deb
+			apt-get install -f -y
 		fi
+
+		apt list sonic-win-dev
+		apt show sonic-win-dev
 	else
 		echo "Directory not found: $dir"
 	fi
