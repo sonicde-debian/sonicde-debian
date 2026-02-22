@@ -4,7 +4,7 @@ export FAILFAST="$1"
 
 export CURRENTARCH=`arch`
 
-TO_BUILD="sonic-win silver-theme"
+TO_BUILD="sonic-win silver-theme sonic-workspace sonicde"
 
 ORIGINAL_DIR=`pwd`
 
@@ -29,6 +29,11 @@ for dir in $TO_BUILD; do
 
 		cd "$ORIGINAL_DIR" || { echo "Failed to return to original directory"; exit 1; }
 
+		if [ "$dir" = "sonic-win" ]; then
+			echo -e "\e[0;32mInstalling sonic-win-dev\e[0m"
+			dpkg -i libsonicwin6_*.deb || apt-get install -f -y
+			dpkg -i sonic-win-dev_*.deb || apt-get install -f -y
+		fi
 	else
 		echo "Directory not found: $dir"
 	fi
