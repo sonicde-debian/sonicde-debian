@@ -4,7 +4,7 @@ export FAILFAST="$1"
 
 export CURRENTARCH=`arch`
 
-TO_BUILD="sonic-win"
+TO_BUILD="sonic-win silver-theme"
 
 ORIGINAL_DIR=`pwd`
 

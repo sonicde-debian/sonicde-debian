@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-TO_BUILD="sonic-win"
+TO_BUILD="sonic-win silver-theme"
 
 for dir in $TO_BUILD; do
 	if [ -d "$dir" ]; then
