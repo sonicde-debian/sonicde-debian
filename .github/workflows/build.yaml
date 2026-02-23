@@ -14,13 +14,23 @@ jobs:
       matrix:
         include:
           # Debian
+          ## Debian Unstable
           - osimage: debian:unstable
             osarchname: amd64
-            osdistroname: debian
+            osdistroname: debian_unstable
             runsonos: ubuntu-24.04
           - osimage: debian:unstable
             osarchname: arm64
-            osdistroname: debian
+            osdistroname: debian_unstable
+            runsonos: ubuntu-24.04-arm
+          ## Debian Testing
+          - osimage: debian:testing
+            osarchname: amd64
+            osdistroname: debian_testing
+            runsonos: ubuntu-24.04
+          - osimage: debian:testing
+            osarchname: arm64
+            osdistroname: debian_testing
             runsonos: ubuntu-24.04-arm
     runs-on: ${{ matrix.runsonos }}
     container:
