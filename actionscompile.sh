@@ -29,6 +29,17 @@ for dir in $TO_BUILD; do
 
 		cd "$ORIGINAL_DIR" || { echo "Failed to return to original directory"; exit 1; }
 
+		if [ "$dir" = "sonic-interface-libraries" ]; then
+			echo -e "\e[0;32mInstalling libsonicinterface-dev\e[0m"
+			dpkg -i libsonicinterface7_*.deb
+			apt-get install -f -y
+			dpkg -i libsonicquick7_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-desktoptheme_*.deb
+			apt-get install -f -y
+			dpkg -i libsonicinterface-dev_*.deb
+			apt-get install -f -y
+		fi
 		if [ "$dir" = "sonic-win" ]; then
 			echo -e "\e[0;32mInstalling sonic-win-dev\e[0m"
 			dpkg -i sonic-win-data_*.deb
