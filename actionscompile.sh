@@ -4,7 +4,7 @@ export FAILFAST="$1"
 
 export CURRENTARCH=`arch`
 
-TO_BUILD="sonic-interface-libraries sonic-screen-library sonic-system-info sonic-win sonic-workspace silver-theme silver-sddm sonic-desktop-interface sonicde"
+TO_BUILD="sonic-interface-libraries sonic-screen-library sonic-screenlocker sonic-system-info sonic-win sonic-workspace silver-theme silver-sddm sonic-desktop-interface sonicde"
 
 ORIGINAL_DIR=`pwd`
 
@@ -38,6 +38,24 @@ for dir in $TO_BUILD; do
 			dpkg -i sonic-desktoptheme_*.deb
 			apt-get install -f -y
 			dpkg -i libsonicinterface-dev_*.deb
+			apt-get install -f -y
+		fi
+		if [ "$dir" = "sonic-screen-library" ]; then
+			echo -e "\e[0;32mInstalling sonic-screen-library-dev\e[0m"
+			dpkg -i sonic-screen-library-data_*.deb
+			apt-get install -f -y
+			dpkg -i libsonicscreen8_*.deb
+			apt-get install -f -y
+			dpkg -i libsonicscreendpms8_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-screen-library-dev_*.deb
+			apt-get install -f -y
+		fi
+		if [ "$dir" = "sonic-screenlocker" ]; then
+			echo -e "\e[0;32mInstalling sonic-screenlocker-dev\e[0m"
+			dpkg -i libsonicscreenlocker6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-screenlocker-dev_*.deb
 			apt-get install -f -y
 		fi
 		if [ "$dir" = "sonic-win" ]; then
