@@ -53,6 +53,8 @@ for dir in $TO_BUILD; do
 		fi
 		if [ "$dir" = "sonic-screenlocker" ]; then
 			echo -e "\e[0;32mInstalling sonic-screenlocker-dev\e[0m"
+			# pre-depends
+			apt-get install -y psmisc
 			dpkg -i libsonicscreenlocker6_*.deb
 			apt-get install -f -y
 			dpkg -i sonic-screenlocker-dev_*.deb
