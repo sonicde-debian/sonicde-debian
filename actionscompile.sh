@@ -17,7 +17,7 @@ for dir in $TO_BUILD; do
 		git fetch origin pristine-tar:pristine-tar 2>/dev/null || true
 		git fetch origin upstream/latest:upstream/latest 2>/dev/null || true
 
-		mk-build-deps --install --remove --tool='apt-get -o Debug::pkgProblemResolver=yes --no-install-recommends -y' debian/control || true
+		apt-get build-dep . || true
 
 		# don't sign packages, they will be signed in a repo.
 		if ! gbp buildpackage --git-builder="debuild -i -I -us -uc" --git-debian-branch="debian/latest" --git-upstream-branch="upstream/latest" --git-pristine-tar; then
