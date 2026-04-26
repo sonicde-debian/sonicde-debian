@@ -59,6 +59,8 @@ for dir in $TO_BUILD; do
 			apt-get install -f -y
 			dpkg -i sonic-screenlocker-dev_*.deb
 			apt-get install -f -y
+			dpkg -i kde-config-sonic-screenlocker_*.deb
+			apt-get install -f -y
 		fi
 		if [ "$dir" = "sonic-win" ]; then
 			echo -e "\e[0;32mInstalling sonic-win-dev\e[0m"
