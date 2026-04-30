@@ -78,9 +78,9 @@ for dir in $TO_BUILD; do
 			apt-get install -f -y
 			dpkg -i sonic-libkworkspace6-6_*.deb
 			apt-get install -f -y
-			dpkg -i sonic-libnotificationmanager1_*.deb
-			apt-get install -f -y
 			dpkg -i sonic-libtaskmanager6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libnotificationmanager1_*.deb
 			apt-get install -f -y
 			dpkg -i sonic-workspace-dev_*.deb
 			apt-get install -f -y
