@@ -62,6 +62,29 @@ for dir in $TO_BUILD; do
 			dpkg -i kde-config-sonic-screenlocker_*.deb
 			apt-get install -f -y
 		fi
+		if [ "$dir" = "sonic-workspace" ]; then
+			echo -e "\e[0;32mInstalling sonic-workspace-dev\e[0m"
+			dpkg -i sonic-libbatterycontrol6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libklipper6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libklookandfeel6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libkmpris6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libkfontinst6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libkfontinstui6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libkworkspace6-6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libnotificationmanager1_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-libtaskmanager6_*.deb
+			apt-get install -f -y
+			dpkg -i sonic-workspace-dev_*.deb
+			apt-get install -f -y
+		fi
 		if [ "$dir" = "sonic-win" ]; then
 			echo -e "\e[0;32mInstalling sonic-win-dev\e[0m"
 			dpkg -i sonic-win-data_*.deb
