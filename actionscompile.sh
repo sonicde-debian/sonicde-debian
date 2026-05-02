@@ -4,7 +4,7 @@ export FAILFAST="$1"
 
 export CURRENTARCH=`arch`
 
-TO_BUILD="sonic-interface-libraries sonic-screen-library sonic-screenlocker sonic-system-info sonic-win sonic-workspace silver-theme silver-sddm sonic-desktop-interface sonicde"
+TO_BUILD="sonic-interface-libraries sonic-screen-library sonic-screenlocker sonic-screen sonic-system-info sonic-win sonic-workspace silver-theme silver-sddm sonic-desktop-interface sonicde"
 
 ORIGINAL_DIR=`pwd`
 
