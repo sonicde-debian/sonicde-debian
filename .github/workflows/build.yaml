@@ -10,8 +10,7 @@ on:
 jobs:
   build:
     strategy:
-      # See: https://github.com/sonicde-debian/debian/issues/8#issuecomment-5186252404
-      fail-fast: false
+      fail-fast: true
       matrix:
         include:
           # Debian
