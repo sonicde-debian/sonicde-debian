@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-TO_BUILD="sonic-interface-libraries sonic-screen-library sonic-screenlocker sonic-screen sonic-system-info sonic-win sonic-workspace silver-theme silver-sddm sonic-desktop-interface sonicde"
+source "$(dirname "${BASH_SOURCE[0]}")/config"
 ORIGINAL_DIR="$(pwd)"
 
 for dir in $TO_BUILD; do
